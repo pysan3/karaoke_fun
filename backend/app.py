@@ -1,6 +1,7 @@
 import sqlite3
 
 import server.server as server
+from server.database import Session
 
 def login(data):
     name = data['user_name']

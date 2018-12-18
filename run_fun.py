@@ -1,15 +1,20 @@
+# pylint: skip-file
+
+# WARNING : THIS CODE DOES NOT WORK
+
 import responder
 import sqlite3
 import sys
 
-from create_logHandler.manage_handlers import create_logger
 import backend.app as backapp
 
 api = responder.API(debug=True, templates_dir='./dist', static_dir='./dist/static')
-logger = create_logger(__name__)
+logger = backapp.createLogger(__name__)
 
 db_name = './database.sqlite3'
 
+#
+"""
 def return_event_id(event_name):
     conn = sqlite3.connect(db_name)
     cur = conn.cursor()
@@ -26,6 +31,7 @@ def return_event_id(event_name):
             sys.exit()
         cur.execute('insert into event_log (event_name) values (?)', event_name)
     return fetch_all[0]
+"""
 
 def makeResult(features):
     if type(features[1]) is not int:
