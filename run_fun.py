@@ -11,10 +11,10 @@ import backend.app as backapp
 api = responder.API(debug=True, templates_dir='./dist', static_dir='./dist/static')
 logger = backapp.createLogger(__name__)
 
-db_name = './database.sqlite3'
-
 #
 """
+db_name = './database.sqlite3'
+
 def return_event_id(event_name):
     conn = sqlite3.connect(db_name)
     cur = conn.cursor()
@@ -50,7 +50,7 @@ async def index(req, resp):
 @api.route('/api/login')
 async def login(req, resp):
     isLogin = backapp.login(req.media())
-    result = {'login':isLogin}
+    result = {'isLogin':isLogin}
     resp.media = result
 
 if __name__ == '__main__':

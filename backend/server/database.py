@@ -3,7 +3,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 engine = create_engine('sqlite:///database.sqlite3', echo=True, poolsize=20, max_overflow=0)
 Base = declarative_base()
-Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 
@@ -43,3 +42,6 @@ class Event_log(Base):
 	def __repr__(self):
 		return '<Event_log(event_id=%s, event_name=%s, )>' \
 			% (self.event_id, self.event_name)
+
+if __name__ == '__main__':
+	Base.metadata.create_all(engine)
